@@ -38,123 +38,171 @@ OwnCloud operates as a very simple way to set up your own syncing cloud storage 
 
    <h2> Install ownCloud Server </h2>
 This section walks you through installing ownCloud using a tar file or a zip file.
-<blockquote> 
-   **Note:** The installation using the ownCloud tarball is best suited for production environments and is also the common installation option. The installation procedure is for experienced administrators and it offers a customizable installation method.
+ 
+   <p><strong>Note:</strong></p> The installation using the ownCloud tarball is best suited for production environments and is also the common installation option. The installation procedure is for experienced administrators and it offers a customizable installation method.
 
 To install ownCloud server, follow these steps:
-1. Go to the [ownCloud download page](https://owncloud.org/download/).
+<ol>
+<li><p>Go to the <a href="https://owncloud.org/download/">ownCloud download page</a>.</p></li>
 
-2. From the **Resources** section, download either the **Tar file** or **Zip file**. Based on your preference, a file downloads with the name `owncloud-x.y.z.tar.bz2` (tar installation) or `owncloud-x.y.z.zip` (zip installation), where *x.y.z* is the version number.
+<li><p>From the <strong>Resources</strong> section, download either the <strong>Tar file</strong> or <strong>Zip file</strong>. Based on your preference, a file downloads with the name <code>owncloud-x.y.z.tar.bz2</code> (tar installation) or <code>owncloud-x.y.z.zip</code> (zip installation), where <em>x.y.z</em> is the version number.</p></li>
 
-3. Download the corresponding checksum file. The supported options are md5 and sha256.
+<li><p>Download the corresponding checksum file. The supported options are md5 and sha256.</p></li>
 
-4. Verify the MD5 or SHA256 sum.
+<li><p>Verify the MD5 or SHA256 sum.</p>
 
-    **Tar:**
-     <code>
+<p><strong>Tar:</strong>
+ <code>
       md5sum -c owncloud-x.y.z.tar.bz2.md5 < owncloud-x.y.z.tar.bz2<br>
       sha256sum -c owncloud-x.y.z.tar.bz2.sha256 < owncloud-x.y.z.tar.bz2
-     </code>
+     </code></p>
 
-    **Zip:**
-     <code>
+<p><strong>Zip:</strong>
+ <code>
       md5sum  -c owncloud-x.y.z.zip.md5 < owncloud-x.y.z.zip<br>
       sha256sum  -c owncloud-x.y.z.zip.sha256 < owncloud-x.y.z.zip
-     </code>
+     </code></p></li>
 
-5. Download the PGP signature file. The supported format is asc.
+<li><p>Download the PGP signature file. The supported format is asc.</p></li>
 
-6.	Verify the PGP signature.
+<li><p>Verify the PGP signature.</p>
 
-      <code>
+<p><code>
        wget https://download.owncloud.org/community/owncloud-x.y.z.tar.bz2.asc <br>
        wget https://owncloud.org/owncloud.asc <br>
        gpg --import owncloud.asc <br>
        gpg --verify owncloud-x.y.z.tar.bz2.asc owncloud-x.y.z.tar.bz2 <br>
-      </code>
+      </code></p></li>
 
-7. Extract the archived contents.
+<li><p>Extract the archived contents.</p>
 
-    **Tar:**
-    <code>
+<p><strong>Tar:</strong>
+<code>
     tar -xjf owncloud-x.y.z.tar.bz2 <br>
-    </code>
-    
-    **Zip:**
-    <code>
+    </code></p>
+
+<p><strong>Zip:</strong>
+<code>
     unzip owncloud-x.y.z.zip <br>
-    </code>
+    </code></p></li>
+</ol>
 
-The content is unpacked to an `owncloud` directory. Copy this directory to a destination of your preference. 
+<p>The content is unpacked to an <code>owncloud</code> directory. Copy this directory to a destination of your preference. </p>
 
-8. Run the Apache HTTP server to install ownCloud in your Apache document root.
+<ol>
+<li>Run the Apache HTTP server to install ownCloud in your Apache document root.</li>
+</ol>
 
-> **Note:** On HTTP servers, it is recommended to install ownCloud outside of the document root.
+<blockquote>
+  <p><strong>Note:</strong> On HTTP servers, it is recommended to install ownCloud outside of the document root.</p>
+</blockquote>
 
-   <code>
+<p><code>
     cp -r owncloud /path/to/webserver/document-root
-   </code>
+   </code></p>
 
-The path is replaced by the document root of your web server:
+<p>The path is replaced by the document root of your web server:</p>
 
-   <code>
+<p><code>
     cp -r owncloud /var/www
-   </code>
+   </code></p>
 
-# Connect to ownCloud Server using LDAP
+<h1 id="connecttoowncloudserverusingldap">Connect to ownCloud Server using LDAP</h1>
 
-The LDAP configuration panel helps to configure server details, and enable its connectivity to users with access.
+<p>The LDAP configuration panel helps to configure server details, and enable its connectivity to users with access.</p>
 
-**Prerequisites:**
-Before you begin, ensure that you have enabled the **LDAP user and group backend app** on the Apps page in ownCloud. 
+<p><strong>Prerequisites:</strong>
+Before you begin, ensure that you have enabled the <strong>LDAP user and group backend app</strong> on the Apps page in ownCloud. </p>
 
-To enable users to connect to the ownCloud server, perform the following steps:
-1. In the Admin page, navigate to the LDAP basic settings.  
+<p>To enable users to connect to the ownCloud server, perform the following steps:</p>
 
-     ![ldap-server](https://user-images.githubusercontent.com/49917749/56632022-731d0800-6675-11e9-910a-8132fda6c12d.png)
+<ol>
+<li><p>In the Admin page, navigate to the LDAP basic settings.  </p>
 
-2. In LDAP window, set the following settings under the Server tab:
-  1. `Host:` Enter the IP address of the LDAP server.  
-  2. `Port:` Set the port number to **8080** to connect to the LDAP server. 
-  3. Click **Detect Port**.
-  4. `User DN and Base DN:` Enter the name as DN of a user with permissions to do searches in the LDAP directory. Enter the base DN of LDAP, from where all users and groups can be reached.
-  5. `Password:` Set the password for the user. For anonymous access, leave the field empty.
-3. Click **Test Configuration**.
+<p><img src="https://user-images.githubusercontent.com/49917749/56632022-731d0800-6675-11e9-910a-8132fda6c12d.png" alt="ldap-server" /></p></li>
 
-# Create a New User Account
-To provide controlled access to the configurations on the server, create user profiles with assigned privileges, add them to groups, and also assign storage quota for each user.
-To create a user account:
-1. Open ownCloud server, and login using administrator credentials.
-2. In the User administration page, click the dropdown menu beside the account name, and select **Users**.
-3. Enter the login name and their initial password.
-Login names can contain letters (a-z, A-Z), numbers (0-9), and special characters. The password cannot be the character 0. 
-4. Assign users to one or more existing groups or create a new group using **Groups** option.
-5. Click **Create**.
-After creating the user, the user or the administrator can change the name using the **Full Name** field, if required.
-7. Check **Send email to new user** option in the control panel on the lower left sidebar. Enter the new user’s email address, and ownCloud automatically sends a notification with the login information. 
+<li><p>In LDAP window, set the following settings under the Server tab:</p>
 
-# Connect to ownCloud Server Using a Desktop or Mobile Client 
-ownCloud supports availability of client extensions (called Apps) for Windows, OS X, Linux desktops, Android and iOS devices. The desktop clients are available in the [ownCloud web page](https://owncloud.org/install). The apps for mobile devices are available on Google Play and the Apple App Store.
+<p><ol>
+<li><code>Host:</code> Enter the IP address of the LDAP server.  </li></p>
 
-**Prerequisites:**
-Before you begin, ensure you have installed the desktop client for your operating system.
+<p><li><code>Port:</code> Set the port number to <strong>8080</strong> to connect to the LDAP server. </li></p>
 
-To connect to ownCloud server using desktop or mobile client and sync data, follow these steps:
-1. Launch the ownCloud desktop client.
-2. In the connection wizard, enter the IP address of your server, and click **Next**. 
-3. If you did not setup HTTPS support on your server, use `http://` and not `https://`. 
-4. In the Server Address field, enter the IP address of the owncloud server.
-5. Enter your username and password, and click **Next**.
-6. Choose a synchronization option with the server from one of these choices: 
-   - Sync everything from server (size)
-   - Choose what to sync
-  
-In addition, choose a synchronization option with the local folder from one of these choices:
-   - Keep local data
-   - Start a clean sync (Erases the local folder)
-  
-7. Click **Connect**.
-8. After the connection is established, click **Finish** to save the settings.
+<p><li>Click <strong>Detect Port</strong>.</li></p>
+
+<p><li><code>User DN and Base DN:</code> Enter the name as DN of a user with permissions to do searches in the LDAP directory. Enter the base DN of LDAP, from where all users and groups can be reached.</li></p>
+
+<p><li><code>Password:</code> Set the password for the user. For anonymous access, leave the field empty.</li></ol>
+
+<p></p></li></p>
+
+<p><li><p>Click <strong>Test Configuration</strong>.</p></li>
+</ol></p>
+
+<h1 id="createanewuseraccount">Create a New User Account</h1>
+
+<p>To provide controlled access to the configurations on the server, create user profiles with assigned privileges, add them to groups, and also assign storage quota for each user.
+To create a user account:</p>
+
+<ol>
+<li>Open ownCloud server, and login using administrator credentials.</li>
+
+<li>In the User administration page, click the dropdown menu beside the account name, and select <strong>Users</strong>.</li>
+
+<li>Enter the login name and their initial password.
+Login names can contain letters (a-z, A-Z), numbers (0-9), and special characters. The password cannot be the character 0. </li>
+
+<li>Assign users to one or more existing groups or create a new group using <strong>Groups</strong> option.</li>
+
+<li>Click <strong>Create</strong>.
+After creating the user, the user or the administrator can change the name using the <strong>Full Name</strong> field, if required.</li>
+
+<li>Check <strong>Send email to new user</strong> option in the control panel on the lower left sidebar. Enter the new user’s email address, and ownCloud automatically sends a notification with the login information. </li>
+</ol>
+
+<h1 id="connecttoowncloudserverusingadesktopormobileclient">Connect to ownCloud Server Using a Desktop or Mobile Client</h1>
+
+<p>ownCloud supports availability of client extensions (called Apps) for Windows, OS X, Linux desktops, Android and iOS devices. The desktop clients are available in the <a href="https://owncloud.org/install">ownCloud web page</a>. The apps for mobile devices are available on Google Play and the Apple App Store.</p>
+
+<p><strong>Prerequisites:</strong>
+Before you begin, ensure you have installed the desktop client for your operating system.</p>
+
+<p>To connect to ownCloud server using desktop or mobile client and sync data, follow these steps:</p>
+
+<ol>
+<li>Launch the ownCloud desktop client.</li>
+
+<li>In the connection wizard, enter the IP address of your server, and click <strong>Next</strong>. </li>
+
+<li>If you did not setup HTTPS support on your server, use <code>http://</code> and not <code>https://</code>. </li>
+
+<li>In the Server Address field, enter the IP address of the owncloud server.</li>
+
+<li>Enter your username and password, and click <strong>Next</strong>.</li>
+
+<li>Choose a synchronization option with the server from one of these choices: 
+
+
+<ul>
+<li>Sync everything from server (size)</li>
+
+<li>Choose what to sync</li></ul>
+</li>
+</ol>
+
+<p>In addition, choose a synchronization option with the local folder from one of these choices:</p>
+
+<ul>
+<li>Keep local data</li>
+
+<li>Start a clean sync (Erases the local folder)</li>
+</ul>
+
+<ol>
+<li>Click <strong>Connect</strong>.</li>
+
+<li>After the connection is established, click <strong>Finish</strong> to save the settings.</li>
+</ol>
 
 
 
