@@ -84,28 +84,18 @@ To install ownCloud server, follow these steps:
 <p><strong>Zip:</strong>
 <code>
     unzip owncloud-x.y.z.zip <br>
-    </code></p></li>
-</ol>
-
-<p>The content is unpacked to an <code>owncloud</code> directory. Copy this directory to a destination of your preference. </p>
-
-<ol>
+    </code>The content is unpacked to an <code>owncloud</code> directory. Copy this directory to a destination of your preference.</p></li>
 <li>Run the Apache HTTP server to install ownCloud in your Apache document root.</li>
-</ol>
-
-<blockquote>
+ <blockquote>
   <p><strong>Note:</strong> On HTTP servers, it is recommended to install ownCloud outside of the document root.</p>
 </blockquote>
-
-<p><code>
+  <p><code>
     cp -r owncloud /path/to/webserver/document-root
-   </code></p>
-
-<p>The path is replaced by the document root of your web server:</p>
-
-<p><code>
+   </code></p> 
+   <p>The path is replaced by the document root of your web server:<code>
     cp -r owncloud /var/www
    </code></p>
+   </ol>
 
 <h1 id="connecttoowncloudserverusingldap">Connect to ownCloud Server using LDAP</h1>
 
@@ -145,19 +135,19 @@ Before you begin, ensure that you have enabled the <strong>LDAP user and group b
 To create a user account:</p>
 
 <ol>
-<li>Open ownCloud server, and login using administrator credentials.</li>
+<li><p>Open ownCloud server, and login using administrator credentials.</p></li>
 
-<li>In the User administration page, click the dropdown menu beside the account name, and select <strong>Users</strong>.</li>
+<li><p>In the User administration page, click the dropdown menu beside the account name, and select <strong>Users</strong>.</p></li>
 
-<li>Enter the login name and their initial password.
-Login names can contain letters (a-z, A-Z), numbers (0-9), and special characters. The password cannot be the character 0. </li>
+<li><p>Enter the login name and their initial password.
+Login names can contain letters (a-z, A-Z), numbers (0-9), and special characters. The password cannot be the character 0.</p></li>
 
-<li>Assign users to one or more existing groups or create a new group using <strong>Groups</strong> option.</li>
+<li><p>Assign users to one or more existing groups or create a new group using <strong>Groups</strong> option.</p></li>
 
-<li>Click <strong>Create</strong>.
-After creating the user, the user or the administrator can change the name using the <strong>Full Name</strong> field, if required.</li>
+<li><p>Click <strong>Create</strong>.
+After creating the user, the user or the administrator can change the name using the <strong>Full Name</strong> field, if required.</p></li>
 
-<li>Check <strong>Send email to new user</strong> option in the control panel on the lower left sidebar. Enter the new user’s email address, and ownCloud automatically sends a notification with the login information. </li>
+<li><p>Check <strong>Send email to new user</strong> option in the control panel on the lower left sidebar. Enter the new user’s email address, and ownCloud automatically sends a notification with the login information.</p></li>
 </ol>
 
 <h1 id="connecttoowncloudserverusingadesktopormobileclient">Connect to ownCloud Server Using a Desktop or Mobile Client</h1>
@@ -170,39 +160,30 @@ Before you begin, ensure you have installed the desktop client for your operatin
 <p>To connect to ownCloud server using desktop or mobile client and sync data, follow these steps:</p>
 
 <ol>
-<li>Launch the ownCloud desktop client.</li>
+<li><p>Launch the ownCloud desktop client.</p></li>
 
-<li>In the connection wizard, enter the IP address of your server, and click <strong>Next</strong>. </li>
+<li><p>In the connection wizard, enter the IP address of your server, and click <strong>Next</strong>.</p></li>
 
-<li>If you did not setup HTTPS support on your server, use <code>http://</code> and not <code>https://</code>. </li>
+<li><p>If you did not setup HTTPS support on your server, use <code>http://</code> and not <code>https://</code>.</p></li>
 
-<li>In the Server Address field, enter the IP address of the owncloud server.</li>
+<li><p>In the Server Address field, enter the IP address of the owncloud server.</p></li>
 
-<li>Enter your username and password, and click <strong>Next</strong>.</li>
+<li><p>Enter your username and password, and click <strong>Next</strong>.</p></li>
 
-<li>Choose a synchronization option with the server from one of these choices: 
-
-
-<ul>
-<li>Sync everything from server (size)</li>
-
-<li>Choose what to sync</li></ul>
+<li><p>Choose a synchronization option with the server from one of these choices: 
+   <ul>
+   <li>Sync everything from server (size)</li>
+      <li>Choose what to sync</p></li></ul>
+   <p>In addition, choose a synchronization option with the local folder from one of these choices:
+   <ul>
+   <li>Keep local data</li>
+   <li>Start a clean sync (Erases the local folder)</li>
+   </ul></p>
+<li><p>Click <strong>Connect</strong>.</p></li>
+<li><p>After the connection is established, click <strong>Finish</strong> to save the settings.</p></li>
 </li>
 </ol>
 
-<p>In addition, choose a synchronization option with the local folder from one of these choices:</p>
-
-<ul>
-<li>Keep local data</li>
-
-<li>Start a clean sync (Erases the local folder)</li>
-</ul>
-
-<ol>
-<li>Click <strong>Connect</strong>.</li>
-
-<li>After the connection is established, click <strong>Finish</strong> to save the settings.</li>
-</ol>
 
 
 
